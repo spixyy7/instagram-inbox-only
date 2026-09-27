@@ -1,0 +1,88 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "url": "https://www.instagram.com/direct/inbox/"
+      }
+    },
+    "condition": {
+      "requestDomains": [
+        "instagram.com"
+      ],
+      "resourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 2,
+    "action": {
+      "type": "allow"
+    },
+    "condition": {
+      "requestDomains": [
+        "instagram.com"
+      ],
+      "regexFilter": "^https?://[^/]+/direct([/?#]|$)",
+      "isUrlFilterCaseSensitive": true,
+      "resourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 2,
+    "action": {
+      "type": "allow"
+    },
+    "condition": {
+      "requestDomains": [
+        "instagram.com"
+      ],
+      "regexFilter": "^https?://[^/]+/accounts/(login|logout|password|two_factor_login|onetap|login_help)([/?#]|$)",
+      "isUrlFilterCaseSensitive": true,
+      "resourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 2,
+    "action": {
+      "type": "allow"
+    },
+    "condition": {
+      "requestDomains": [
+        "instagram.com"
+      ],
+      "regexFilter": "^https?://[^/]+/(challenge|checkpoint)([/?#]|$)",
+      "isUrlFilterCaseSensitive": true,
+      "resourceTypes": [
+        "main_frame"
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 2,
+    "action": {
+      "type": "allow"
+    },
+    "condition": {
+      "requestDomains": [
+        "instagram.com"
+      ],
+      "regexFilter": "^https?://[^/]+/call([/?#]|$)",
+      "isUrlFilterCaseSensitive": true,
+      "resourceTypes": [
+        "main_frame"
+      ]
+    }
+  }
+]

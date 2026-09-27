@@ -1,0 +1,16 @@
+/* Hide a forbidden page before its content can appear. */
+html:not([data-inbox-only-mode]) body,
+html[data-inbox-only-mode="blocked"] body {
+  visibility: hidden !important;
+}
+
+/* Attribute selectors do not depend on Instagram's generated class names. */
+html[data-inbox-only-mode="direct"] [data-inbox-only-hidden],
+html[data-inbox-only-mode="direct"] a:is(
+  [href="/"], [href="/explore/"], [href="/explore"],
+  [href="/reels/"], [href="/reels"],
+  [href="/create/"], [href="/accounts/edit/"],
+  [href="https://www.instagram.com/"]
+) {
+  display: none !important;
+}

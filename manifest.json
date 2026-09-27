@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Instagram — Inbox Only",
+  "version": "1.0.1",
+  "description": "Hides Instagram navigation and redirects the feed, Reels, Explore, and profiles to your inbox.",
+  "minimum_chrome_version": "101",
+  "permissions": [
+    "declarativeNetRequestWithHostAccess",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "*://*.instagram.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Instagram inbox"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "inbox_only",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.instagram.com/*"
+      ],
+      "js": [
+        "policy.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}
